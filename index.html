@@ -9,23 +9,17 @@
     <script src="js/JSXTransformer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <style>
-      body {
-      background-color: #E8E8E8;
-      }
-      .product {
-      border: 5px solid cyan;
-      width: 400px;
-      }
-    </style>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
   </head>
   
   <body>
     
-    <h1>ReactDasboard</h1>
-    
-    <div id="inventory-dashboard"></div>
+    <div id="inventory-dashboard" class="container"></div>
 
   </body>
   
@@ -48,27 +42,32 @@
 	    });
 	},
 	render: function() {
-	    return (
+    return (
+    <div className="row">
 		    <div className="productList">
-		    <h1>Products</h1>
-		    <Product data={this.state.data}></Product>
-		    </div>
-	    );
-	}
+		      <h1 className="teal-text">Products</h1>
+		      <Product data={this.state.data}></Product>
+		    </div>      
+    </div>
+    );
+    }
     });
 var Product = React.createClass({
     render: function() {
 	var productNodes = this.props.data.map(function (product) {
-	    return (
-		    <div className="product">
-		    <b>Name:</b> {product.item_name} <br />
-		    <b>Stockable:</b>{product.item_stockable}<br />
-		    <b>price:</b>{product.item_price}<br/>
-		    <b>Instock:</b>{product.item_instock}<br/>
-		    <b>Type:</b>{product.item_type}<br/>
-		    <b>id:</b>{product.item_sku}<br/>
-		    <b>token:</b>{product._id}
+		    return (	
+		      <div className="col s4">
+			<div className="card-panel hoverable">
+			  <div className="product">
+			    <span className="right teal-text">{product.item_units} units</span>
+			    <h5 className="truncate">{product.item_name}</h5>
+			    <p className="truncate">{product.item_description}</p>
+			    <span className="right chip">{product.item_type}</span>
+			    <b>Rs.</b>{product.item_price} per unit.<br/>
+			  </div>
+			</div>
 		    </div>
+		    
 	    );
 	});
 	return (
