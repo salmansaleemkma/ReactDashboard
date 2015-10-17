@@ -135,5 +135,5 @@ var SearchedProduct = React.createClass({
 
 
 React.render(
-    <ProductList url="http://127.0.0.1:5000/products" />,
+    <ProductList url="http://inventorybackend-dev.elasticbeanstalk.com/products" />,
     document.getElementById('inventory-dashboard'));
