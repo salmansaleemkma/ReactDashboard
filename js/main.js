@@ -21,15 +21,15 @@ var ProductList = React.createClass({
 	    <div className="productList">
 	    <h1 className="teal-text">Products</h1>
 	    <Product data={this.state.data}></Product>
-	    </div>      
+	    </div>
 	    </div>
 	);
     }
 });
 
 var Product = React.createClass({
-    doSearch:function(queryText){	
-	var queryResult = [];			
+    doSearch:function(queryText){
+	var queryResult = [];
 	this.props.data.forEach(function(product){
 	    if(product.item_name.toLowerCase().indexOf(queryText)!=-1) {
 		queryResult.push(product);
@@ -37,9 +37,9 @@ var Product = React.createClass({
 	    else if(product.item_description.toLowerCase().indexOf(queryText)!=-1){
 		queryResult.push(product);
 	    }
-	    
+
 	});
-	
+
 	this.setState({
 	    query: queryText,
 	    filteredData: queryResult
@@ -82,16 +82,19 @@ var SearchBox = React.createClass({
 	    <i className="material-icons">search</i>
 	    </div>
 	    </div>
+	    <div className="col s4">
+	    <a className="btn-floating btn-small waves-effect waves-light"><i className="material-icons" title="Add New Product">add</i></a>
 	    </div>
-	    
+	    </div>
+
 	);
-	
+
     }
 });
 
 var SearchedProduct = React.createClass({
     render: function() {
-	
+
 	var productNodes = this.props.data.map(function (product) {
 	    if(product.item_units < 150){
 		return (
@@ -107,9 +110,9 @@ var SearchedProduct = React.createClass({
 		    </div>
 		    </div>
 		);
-		
+
 	    }
-	    else return (	
+	    else return (
 		<div className="col s4">
 		<div className="card-panel hoverable">
 		<div className="product">
@@ -121,7 +124,7 @@ var SearchedProduct = React.createClass({
 		</div>
 		</div>
 		</div>
-		
+
 	    );
 	});
 	return (
@@ -131,9 +134,9 @@ var SearchedProduct = React.createClass({
 	    </div>
 	);
     }
-});	
+});
 
 
 React.render(
-    <ProductList url="http://myinventory-backend.elasticbeanstalk.com/products" />,
+    <ProductList url="http://inventory-backend.elasticbeanstalk.com/" />,
     document.getElementById('inventory-dashboard'));
