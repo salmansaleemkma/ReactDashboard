@@ -138,5 +138,5 @@ var SearchedProduct = React.createClass({
 
 
 React.render(
-    <ProductList url="http://inventory-backend.elasticbeanstalk.com/" />,
+    <ProductList url="http://inventory-backend.elasticbeanstalk.com/products" />,
     document.getElementById('inventory-dashboard'));
