@@ -98,7 +98,7 @@ var SearchedProduct = React.createClass({
 	var productNodes = this.props.data.map(function (product) {
 	    if(product.item_units < 150){
 		return (
-		    <div className="col s4">
+		    <div className="col s6">
 		    <div className="card-panel hoverable #bcaaa4 brown lighten-3">
 		    <div className="product">
 		    <span className="right teal-text">{product.item_units} units</span>
@@ -113,7 +113,7 @@ var SearchedProduct = React.createClass({
 
 	    }
 	    else return (
-		<div className="col s4">
+		<div className="col s6">
 		<div className="card-panel hoverable">
 		<div className="product">
 		<span className="right teal-text">{product.item_units} units</span>
